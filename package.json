@@ -1,6 +1,6 @@
 {
-  "name": "<pkg_name>",
-  "description": "INVERTER typescript NPM package template",
+  "name": "mongo-lead",
+  "description": "Leader election backed by MongoDB",
   "version": "0.0.0",
   "exports": {
     ".": {
@@ -55,7 +55,9 @@
     "eslint": "^9.17.0",
     "typescript": "^5.7.2"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "mongodb": "^6.7.0"
+  },
   "dependencies": {
     "type-fest-4": "npm:type-fest@^4.31.0",
     "debug": "^4.4.0"
@@ -78,20 +80,37 @@
     "typescript-eslint": "^8.19.0"
   },
   "license": "LGPL-3.0",
-  "homepage": "https://github.com/<github_username>/<pkg_name>",
+  "homepage": "https://github.com/mguleryuz/mongo-lead",
   "authors": [
-    "<github_username>"
+    "mguleryuz"
   ],
-  "repository": "<github_username>/<pkg_name>",
+  "repository": "mguleryuz/mongo-lead",
   "bugs": {
-    "url": "https://github.com/<github_username>/<pkg_name>/issues"
+    "url": "https://github.com/mguleryuz/mongo-lead/issues"
   },
   "keywords": [
-    "npm",
-    "contracts",
-    "web3",
-    "ethereum",
-    "solidity",
-    "evm"
+    "mongodb",
+    "leader-election",
+    "distributed-systems",
+    "coordination",
+    "heartbeat",
+    "failover",
+    "high-availability",
+    "distributed-cron",
+    "cluster-coordination",
+    "primary-backup",
+    "mongoose",
+    "ttl",
+    "atomic-operations",
+    "distributed-computing",
+    "node",
+    "distributed-lock",
+    "mutex",
+    "semaphore",
+    "concurrency-control",
+    "distributed-mutex",
+    "lock-manager",
+    "resource-locking",
+    "synchronization"
   ]
 }

@@ -9,48 +9,74 @@
 
 </div>
 
-## Inverter / NPM package Template
+# mongo-lead ~ Leader Election backed by MongoDB
 
-Bun + Npm + Typescript + Standard Version + Flat Config Linting + Husky + Commit / Release Pipeline
+A lightweight leader election implementation using MongoDB as the coordination backend. This package enables distributed systems to elect a single leader among multiple instances, ensuring that only one instance holds the leadership role at any given time.
+
+The leader election process works by:
+
+- Using MongoDB's atomic operations to maintain leadership records
+- Implementing a heartbeat mechanism with TTL (Time To Live) indexes
+- Automatically handling failover if the leader becomes unavailable
+- Providing event-driven leadership status notifications
+
+Perfect for scenarios where you need:
+
+- Distributed cron jobs that should only run on one instance
+- Primary/backup system coordination
+- Cluster coordination tasks
+- Preventing duplicate processing in distributed systems
 
 ## Summary
 
-This package contains < a template for devoloping for npm packages > for [brand_name](https://github.com/<github_username>).
+A MongoDB-backed leader election package that provides reliable distributed coordination through atomic operations and TTL-based heartbeats. Built and maintained by [mguleryuz](https://github.com/mguleryuz), inspired by [mongo-leader](https://github.com/andrewmolyuk/mongo-leader) by Andrew Molyuk.
 
 Check out the [Changelog](./CHANGELOG.md) to see what changed in the last releases.
 
-## Install dependencies
+## Install
 
-Install Bun ( bun is used for testing for primitives no bun is needed ):
-
-```bash
-# Supported on macOS, Linux, and WSL
-
-curl -fsSL https://bun.sh/install | bash
-
-# Upgrade Bun every once in a while
-
-bun upgrage
-
+```sh
+bun add mongo-lead
 ```
 
-Install dependencie:
+## Usage
 
-```bash
-bun add <pkg_name>
+```ts
+import mongoose from 'mongoose'
+import Leader from 'mongo-lead'
+
+// Plese note that prior to using the Leader class you need to have a MongoDB instance connected
+
+const leader = new Leader(mongoose.connection.db, {
+  groupName: 'all-cron-jobs',
+  ttl: 10000,
+  wait: 1000,
+})
+
+leader.start()
+
+leader.on('elected', () => {
+  console.log('Starting all cron jobs')
+  // ...Rest of the code
+})
+
+leader.on('revoked', () => {
+  console.log('Stopping all cron jobs')
+  // ...Rest of the code
+})
 ```
 
 ## Developing
 
-### Install Dependencies
+Install Dependencies
 
-```bash
+```sh
 bun i
 ```
 
-### Watching TS Problems
+Watching TS Problems
 
-```bash
+```sh
 bun watch
 ```
 
@@ -67,17 +93,17 @@ bun watch
 7. Lastly run `bun release:pub`
 8. Done
 
-## Summary
+## License
 
-This package contains < a template for devoloping for npm packages > for [brand_name](https://github.com/<github_username>).
+This package is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
-[ci-image]: https://badgen.net/github/checks/<github_username>/<pkg_name>/main?label=ci
-[ci-url]: https://github.com/<github_username>/<pkg_name>/actions/workflows/ci.yaml
-[npm-url]: https://npmjs.org/package/<pkg_name>
-[npm-version-image]: https://badgen.net/npm/v/<pkg_name>
-[twitter-url]: https://twitter.com/<x_username>
-[twitter-image]: https://img.shields.io/twitter/follow/<x_username>.svg?label=follow+<brand_name>
-[license-image]: https://img.shields.io/badge/License-LGPL%20v3-blue
+[ci-image]: https://badgen.net/github/checks/mguleryuz/mongo-lead/main?label=ci
+[ci-url]: https://github.com/mguleryuz/mongo-lead/actions/workflows/ci.yaml
+[npm-url]: https://npmjs.org/package/mongo-lead
+[npm-version-image]: https://badgen.net/npm/v/mongo-lead
+[twitter-url]: https://twitter.com/mguleryuz
+[twitter-image]: https://img.shields.io/twitter/follow/mguleryuz.svg?label=follow+mguleryuz
+[license-image]: https://img.shields.io/badge/License-MIT-blue
 [license-url]: ./LICENSE
-[npm-latest-image]: https://img.shields.io/npm/v/<pkg_name>/latest.svg
-[npm-downloads-image]: https://img.shields.io/npm/dm/<pkg_name>.svg
+[npm-latest-image]: https://img.shields.io/npm/v/mongo-lead/latest.svg
+[npm-downloads-image]: https://img.shields.io/npm/dm/mongo-lead.svg
