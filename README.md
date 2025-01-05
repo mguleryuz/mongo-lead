@@ -99,8 +99,8 @@ This package is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 [ci-image]: https://badgen.net/github/checks/mguleryuz/mongo-lead/main?label=ci
 [ci-url]: https://github.com/mguleryuz/mongo-lead/actions/workflows/ci.yaml
 [npm-url]: https://npmjs.org/package/mongo-lead
-[twitter-url]: https://twitter.com/mguleryuz
-[twitter-image]: https://img.shields.io/twitter/follow/mguleryuz.svg?label=follow+mguleryuz
+[twitter-url]: https://twitter.com/mgguleryuz
+[twitter-image]: https://img.shields.io/twitter/follow/mgguleryuz.svg?label=follow+mgguleryuz
 [license-image]: https://img.shields.io/badge/License-MIT-blue
 [license-url]: ./LICENSE
 [npm-latest-image]: https://img.shields.io/npm/v/mongo-lead/latest.svg
