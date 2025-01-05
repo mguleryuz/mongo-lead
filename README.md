@@ -1,9 +1,8 @@
 <div align="center">
 
-[![NPM Version][npm-version-image]][npm-url]
+[![npm latest package][npm-latest-image]][npm-url]
 [![Build Status][ci-image]][ci-url]
 [![License][license-image]][license-url]
-[![npm latest package][npm-latest-image]][npm-url]
 [![npm downloads][npm-downloads-image]][npm-url]
 [![Follow on Twitter][twitter-image]][twitter-url]
 
@@ -100,7 +99,6 @@ This package is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 [ci-image]: https://badgen.net/github/checks/mguleryuz/mongo-lead/main?label=ci
 [ci-url]: https://github.com/mguleryuz/mongo-lead/actions/workflows/ci.yaml
 [npm-url]: https://npmjs.org/package/mongo-lead
-[npm-version-image]: https://badgen.net/npm/v/mongo-lead
 [twitter-url]: https://twitter.com/mguleryuz
 [twitter-image]: https://img.shields.io/twitter/follow/mguleryuz.svg?label=follow+mguleryuz
 [license-image]: https://img.shields.io/badge/License-MIT-blue
